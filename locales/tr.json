@@ -1,0 +1,267 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "bookstore": "Kitaplar",
+    "contact": "İletişim",
+    "kitabevi": {
+      "title": "Kitabevi",
+      "hakkimizda": "Hakkımızda",
+      "blog": "Blog",
+      "etkinlikler": "Etkinlikler",
+      "kimlerGeldi": "Kimler Geldi?"
+    },
+    "yayinevi": {
+      "title": "Yayınevi",
+      "bizKimiz": "Biz Kimiz",
+      "yazarlarimiz": "Booky'de Kimler Var"
+    }
+  },
+  "common": {
+    "cart": "Sepet",
+    "addToCart": "Sepete Ekle",
+    "outOfStock": "Tükendi",
+    "lowStockPrefix": "Son",
+    "lowStockSuffix": "adet",
+    "inStock": "Stokta",
+    "lowStockOption": "Az Stoklu",
+    "readMore": "Devamını Oku",
+    "viewDetails": "İncele",
+    "viewAll": "Tümünü Gör",
+    "loadMore": "Daha Fazla Yükle",
+    "search": "Ara",
+    "searchPlaceholder": "Kitap veya yazar ara...",
+    "filters": "Filtreler",
+    "category": "Kategori",
+    "author": "Yazar",
+    "priceRange": "Fiyat Aralığı",
+    "stockStatus": "Stok Durumu",
+    "all": "Tümü",
+    "close": "Kapat",
+    "menu": "Menü",
+    "more": "Daha Fazla",
+    "loading": "Yükleniyor...",
+    "noResults": "Sonuç bulunamadı.",
+    "gridView": "Izgara görünümü",
+    "listView": "Liste görünümü",
+    "quantity": "Adet",
+    "total": "Toplam",
+    "subtotal": "Ara Toplam",
+    "clearFilters": "Filtreleri Temizle",
+    "back": "Geri Dön",
+    "previous": "Önceki",
+    "next": "Sonraki"
+  },
+  "footer": {
+    "rights": "Tüm hakları saklıdır.",
+    "followUs": "Bizi Takip Edin",
+    "contactUs": "Bize Ulaşın",
+    "quickLinks": "Hızlı Bağlantılar",
+    "workingHours": "Çalışma Saatleri"
+  },
+  "home": {
+    "featuredBooks": "Öne Çıkan Kitaplar",
+    "featuredBooksSubtitle": "Rafımızdaki favorilerimiz",
+    "latestPosts": "Son Blog Yazıları",
+    "upcomingEvents": "Yaklaşan Etkinlikler",
+    "ourAuthors": "Booky'de Kimler Var",
+    "heroWhoWeAre": "Biz Kimiz",
+    "heroBookstore": "Kitabevi",
+    "heroPublishingHouse": "Yayınevi",
+    "heroOurAuthors": "Booky'de Kimler Var",
+    "heroEvents": "Etkinliklerimiz",
+    "heroKicker": "Kitapla Buluşulan Yer",
+    "heroMonthProgram": "{month} Programı",
+    "featuredBooksKicker": "Rafımızdaki favorilerimiz, {month} seçkisi",
+    "guestsKicker": "Konuklarımız",
+    "latestPostsKicker": "Günlük",
+    "monthProgramCardTitle": "{month} tamamı tek sayfada.",
+    "monthProgramCardCta": "Takvime ekle",
+    "podcastKicker": "Booky Podcast",
+    "podcastTitle": "Kitapların Sesi",
+    "podcastEpisodeLabel": "Bölüm {number}",
+    "podcastEpisodeTitle": "Memeler ve Yumurtalar",
+    "podcastEpisodeDescription": "Konuğumuz İrem Uzunhasanoğlu ile Mieko Kawakami’nin romanını, anneliği ve çeviriyi konuştuk.",
+    "podcastWatchOnYoutube": "YouTube’da izle",
+    "podcastListenOnSpotify": "Spotify’da dinle",
+    "instagramTitle": "Instagram’da Booky",
+    "instagramFollow": "Takip et",
+    "allEvents": "Tüm etkinlikler",
+    "pastEventsKicker": "Geçmiş Etkinlikler",
+    "whoVisited": "Kimler Geldi?"
+  },
+  "product": {
+    "description": "Açıklama",
+    "details": "Kitap Bilgileri",
+    "publisher": "Yayınevi",
+    "isbn": "ISBN",
+    "pageCount": "Sayfa Sayısı",
+    "publishedYear": "Basım Yılı",
+    "relatedBy": "Yazarın Diğer Kitapları",
+    "addedToCart": "Sepete eklendi",
+    "frequentlyBoughtTogether": "Bunlar da ilginizi çekebilir",
+    "noSalesLinks": "Bu kitap için satış bağlantısı henüz eklenmedi."
+  },
+  "cart": {
+    "title": "Sepetim",
+    "empty": "Sepetiniz boş.",
+    "continueShopping": "Alışverişe Devam Et",
+    "checkout": "Ödemeye Geç",
+    "remove": "Kaldır",
+    "recommendationsTitle": "Sepetine Eklemek İsteyebilirsin"
+  },
+  "checkout": {
+    "title": "Ödeme",
+    "addressTitle": "Teslimat Adresi",
+    "fullName": "Ad Soyad",
+    "phone": "Telefon",
+    "email": "E-posta",
+    "addressLine": "Adres",
+    "city": "Şehir",
+    "postalCode": "Posta Kodu",
+    "deliveryTitle": "Teslimat Seçenekleri",
+    "deliveryStandard": "Standart Teslimat (3-5 gün)",
+    "deliveryExpress": "Hızlı Teslimat (1-2 gün)",
+    "paymentTitle": "Ödeme Yöntemi",
+    "cardNumber": "Kart Numarası",
+    "cardName": "Kart Üzerindeki İsim",
+    "cardExpiry": "Son Kullanma Tarihi",
+    "cardCvc": "CVC",
+    "orderSummary": "Sipariş Özeti",
+    "placeOrder": "Siparişi Tamamla",
+    "processing": "Ödeme işleniyor...",
+    "successTitle": "Siparişiniz Alındı!",
+    "successMessage": "Teşekkürler! Siparişiniz başarıyla oluşturuldu.",
+    "orderNumber": "Sipariş Numarası",
+    "emptyCartNotice": "Ödemeye geçmeden önce sepetinize ürün ekleyin.",
+    "chooseHowToContinue": "Nasıl devam etmek istersiniz?",
+    "continueAsGuest": "Üye Olmadan Devam Et"
+  },
+  "blog": {
+    "title": "Blog",
+    "categoryFilter": "Kategoriye Göre Filtrele",
+    "relatedPosts": "İlgili Yazılar",
+    "publishedOn": "Yayın Tarihi",
+    "by": "Yazan",
+    "authorFilter": "Yazara Göre Filtrele",
+    "allAuthors": "Tüm Yazarlar",
+    "moreOptions": "Diğer seçenekler",
+    "copyLink": "Bağlantıyı Kopyala",
+    "linkCopied": "Bağlantı kopyalandı.",
+    "saveImage": "Görsel Olarak Kaydet",
+    "preparing": "Hazırlanıyor...",
+    "imageSaved": "Görsel indirildi.",
+    "imageReadyTapAgain": "Görsel hazır, kaydetmek için tekrar dokun.",
+    "actionError": "Bir sorun oluştu, lütfen tekrar dene."
+  },
+  "events": {
+    "title": "Etkinlikler",
+    "upcoming": "Yaklaşan Etkinlik",
+    "dateLabel": "Tarih",
+    "locationLabel": "Konum",
+    "capacityLabel": "Kontenjan",
+    "capacityFull": "Dolu",
+    "join": "Katıl / İletişime Geç",
+    "pastEvents": "Geçmiş Etkinlikler",
+    "upcomingEvents": "Gelecek Etkinlikler",
+    "calendar": {
+      "previousMonth": "Önceki Ay",
+      "nextMonth": "Sonraki Ay",
+      "previousMonthAriaLabel": "Önceki ay",
+      "nextMonthAriaLabel": "Sonraki ay",
+      "moreEventsTemplate": "+{count}"
+    },
+    "galleryTitle": "Kimler Geldi?"
+  },
+  "authors": {
+    "title": "Booky'de Kimler Var",
+    "introLead": "Yeni seslere kapımız her zaman açık.",
+    "introParagraphs": [
+      "Booky Yayınevi, roman, şiir, öykü ve çocuk kitapları alanında özgün eserlere imza atan yazarları destekliyor. "
+    ],
+    "books": "kitap",
+    "biography": "Biyografi",
+    "theirBooks": "Kitapları",
+    "theirPosts": "Blog Yazıları",
+    "listen": "Playlist'i Dinle"
+  },
+  "guests": {
+    "title": "Kimler Geldi?",
+    "intro": "Kitabevimizde ağırladığımız konuklar ve yazarlar.",
+    "visitedLabel": "Ziyaret",
+    "photoCount": "{count} fotoğraf"
+  },
+  "team": {
+    "title": "Ekibimiz",
+    "intro": "Booky Kitabevi'nin arkasındaki ekiple tanışın."
+  },
+  "contact": {
+    "title": "İletişim",
+    "formName": "Ad Soyad",
+    "formEmail": "E-posta",
+    "formPhone": "Telefon",
+    "formMessage": "Mesajınız",
+    "send": "Gönder",
+    "sending": "Gönderiliyor...",
+    "success": "Mesajınız başarıyla gönderildi!",
+    "error": "Mesajınız gönderilemedi. Lütfen daha sonra tekrar deneyin.",
+    "recaptchaRequired": "Lütfen robot olmadığınızı doğrulayın.",
+    "kvkkConsentPrefix": "",
+    "kvkkConsentSuffix": "'ni okudum, kişisel verilerimin belirtilen kapsamda işlenmesini kabul ediyorum.",
+    "kvkkConsentRequired": "Devam etmek için KVKK Aydınlatma Metni'ni onaylamanız gerekiyor.",
+
+    "address": "Adres",
+    "phone": "Telefon",
+    "email": "E-posta",
+    "workingHours": "Çalışma Saatleri"
+  },
+  "about": {
+    "title": "Hakkımızda"
+  },
+  "publishingHouse": {
+    "title": "Biz Kimiz"
+  },
+  "press": {
+    "title": "Basında",
+    "bannerTitle": "Basında Booky",
+    "bannerSubtitle": "Bizden bahseden haberlere göz atın."
+  },
+  "notFound": {
+    "title": "Sayfa Bulunamadı",
+    "message": "Aradığınız sayfa taşınmış ya da hiç var olmamış olabilir.",
+    "backHome": "Ana Sayfaya Dön"
+  },
+  "auth": {
+    "login": "Giriş Yap",
+    "register": "Üye Ol",
+    "password": "Şifre",
+    "confirmPassword": "Şifre Tekrar",
+    "showPassword": "Şifreyi göster",
+    "hidePassword": "Şifreyi gizle",
+    "myAccount": "Hesabım",
+    "myOrders": "Siparişlerim",
+    "adminPanel": "Yönetim Paneli",
+    "logout": "Çıkış Yap",
+    "noAccount": "Hesabınız yok mu?",
+    "haveAccount": "Zaten hesabınız var mı?",
+    "loginError": "E-posta veya şifre hatalı.",
+    "registerError": "Kayıt oluşturulamadı. Bu e-posta zaten kullanılıyor olabilir.",
+    "passwordMismatch": "Şifreler eşleşmiyor.",
+    "passwordTooShort": "Şifre en az 8 karakter olmalı."
+  },
+  "comingSoon": {
+    "title": "Booky Yakında Açılıyor",
+    "message": "Kitaplarla dolu yeni bir dünya için hazırlanıyoruz.",
+    "emailPlaceholder": "E-posta adresiniz",
+    "subscribe": "Haberdar Ol",
+    "subscribing": "Gönderiliyor...",
+    "subscribeSuccess": "Teşekkürler! Açılışta size haber vereceğiz.",
+    "subscribeError": "Bir şeyler ters gitti, lütfen tekrar deneyin."
+  },
+  "legal": {
+    "footerTitle": "Bilgilendirme",
+    "kvkk": { "title": "KVKK Aydınlatma Metni" },
+    "privacy": { "title": "Gizlilik Sözleşmesi" },
+    "consent": { "title": "Açık Rıza Metni" },
+    "pricing": { "title": "Ücret Politikası" }
+  }
+}

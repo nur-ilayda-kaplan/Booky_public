@@ -1,0 +1,414 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL_UNPOOLED")
+}
+
+enum Role {
+  CUSTOMER
+  SUPER_ADMIN
+  BLOG_MANAGER
+  BLOG_AUTHOR
+  PRODUCT_MANAGER
+}
+
+enum ContentStatus {
+  DRAFT
+  PUBLISHED
+  SCHEDULED
+}
+
+enum MenuLocation {
+  MAIN
+  FOOTER
+}
+
+enum MenuLinkType {
+  INTERNAL
+  BLOG_CATEGORY
+  PRODUCT_CATEGORY
+  EXTERNAL
+}
+
+model User {
+  id               String               @id @default(cuid())
+  email            String               @unique
+  passwordHash     String
+  name             String
+  role             Role                 @default(CUSTOMER)
+  createdAt        DateTime             @default(now())
+  orders           Order[]
+  // BLOG_AUTHOR'ın yazı yazabildiği (ve sadece o) blog kategorileri.
+  // SUPER_ADMIN/BLOG_MANAGER için kontrol edilmez, onlar zaten tüm
+  // kategorilere erişebilir.
+  categoryAccess   UserCategoryAccess[]
+  // Bir blog yazısını fiilen oluşturan giriş hesabı — BlogPost.author
+  // (Author modeli) sitede görünen "yazan" bylinesıdır, bununla karıştırılmamalı.
+  createdBlogPosts BlogPost[]
+}
+
+// --- CMS / Yönetim paneli modelleri (V1) ---
+
+model SiteSetting {
+  id                     String   @id @default("singleton")
+  logoUrl                String?
+  logoMobileUrl          String?
+  faviconUrl             String?
+  aboutImageUrl          String?
+  aboutLeadTr            String?
+  aboutLeadEn            String?
+  aboutBodyTr            String?
+  aboutBodyEn            String?
+  address                String?
+  phone                  String?
+  email                  String?
+  whatsapp               String?
+  whatsappEnabled        Boolean  @default(true)
+  workingHours           String?
+  mapEmbedUrl            String?
+  socialInstagram        String?
+  socialInstagramEnabled Boolean  @default(true)
+  socialFacebook         String?
+  socialFacebookEnabled  Boolean  @default(false)
+  socialX                String?
+  socialXEnabled         Boolean  @default(false)
+  socialYoutube          String?
+  socialYoutubeEnabled   Boolean  @default(false)
+  socialLinkedin         String?
+  socialLinkedinEnabled  Boolean  @default(false)
+  socialTiktok           String?
+  socialTiktokEnabled    Boolean  @default(false)
+  socialSpotify          String?
+  socialSpotifyEnabled   Boolean  @default(false)
+  socialSubstack         String?
+  socialSubstackEnabled  Boolean  @default(false)
+  seoTitleDefault        String?
+  seoDescriptionDefault  String?
+  ogImageDefault         String?
+  updatedAt              DateTime @updatedAt
+}
+
+model Author {
+  id                 String        @id @default(cuid())
+  slug               String        @unique
+  name               String
+  photo              String?
+  shortBio           String?
+  bio                String?
+  socialInstagram    String?
+  socialTwitter      String?
+  socialWebsite      String?
+  spotifyPlaylistUrl String?
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+  blogPosts          BlogPost[]
+  products           Product[]
+  eventAuthors       EventAuthor[]
+}
+
+// /yayinevi/biz-kimiz sayfasındaki "Ekibimiz" listesi — Author'dan farklı
+// olarak kitap/blog yazarı değil, Booky ekibindeki kişiler; slug/detay
+// sayfası yok (sadece kart + modal, bkz. components/team/TeamGrid.tsx),
+// bu yüzden Author'daki gibi unique slug alanı gerekmiyor. "order" admin
+// panelden manuel sıralama için (bkz. Slider.order ile aynı desen).
+model TeamMember {
+  id        String   @id @default(cuid())
+  name      String
+  role      String
+  photo     String?
+  bio       String?
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// /press sayfasındaki ve PressBanner'ın (bkz. components/ui/PressBanner.tsx)
+// bağlandığı "Basında Booky" listesi — slug/detay sayfası yok, sadece dış
+// linke (url) çıkan bir kart, bu yüzden TeamMember gibi unique slug
+// gerekmiyor. publishedAt'a göre azalan sırada gösterilir (bkz.
+// lib/services/press.ts), bu yüzden manuel "order" alanına ihtiyaç yok.
+model PressMention {
+  id          String   @id @default(cuid())
+  title       String
+  source      String
+  url         String
+  excerpt     String
+  publishedAt DateTime
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Category {
+  id         String               @id @default(cuid())
+  slug       String               @unique
+  nameTr     String
+  nameEn     String
+  products   Product[]
+  blogPosts  BlogPost[]
+  userAccess UserCategoryAccess[]
+}
+
+// BLOG_AUTHOR rolündeki bir kullanıcının hangi blog kategorilerinde yazı
+// oluşturabildiğini tutar. SUPER_ADMIN ve BLOG_MANAGER için bu tablo hiç
+// kontrol edilmez (bkz. lib/adminGuard.ts hasBlogCategoryAccess).
+model UserCategoryAccess {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, categoryId])
+}
+
+model Page {
+  id             String        @id @default(cuid())
+  slug           String        @unique
+  title          String
+  content        String
+  status         ContentStatus @default(DRAFT)
+  scheduledAt    DateTime?
+  seoTitle       String?
+  seoDescription String?
+  canonicalUrl   String?
+  ogTitle        String?
+  ogDescription  String?
+  ogImage        String?
+  noIndex        Boolean       @default(false)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}
+
+model BlogPost {
+  id              String        @id @default(cuid())
+  slug            String        @unique
+  title           String
+  excerpt         String
+  content         String
+  coverImage      String?
+  categoryId      String?
+  category        Category?     @relation(fields: [categoryId], references: [id])
+  tags            String[]      @default([])
+  authorId        String?
+  author          Author?       @relation(fields: [authorId], references: [id])
+  // Admin panelinde elle girilen, sitede görünen yazar adı. Doluysa
+  // "author" ilişkisinin önüne geçer.
+  authorName      String?
+  // authorName'den slugify ile türetilir; yazara göre gruplama/filtreleme
+  // bununla yapılır, böylece büyük/küçük harf ve Türkçe karakter farkları
+  // aynı yazara düşer.
+  authorSlug      String?
+  // Yazıyı fiilen oluşturan giriş hesabı (BLOG_AUTHOR sahiplik kontrolü için).
+  // "author" alanı sitede görünen yazar bylinesı, bununla ilişkisi yok.
+  createdByUserId String?
+  createdBy       User?         @relation(fields: [createdByUserId], references: [id])
+  status          ContentStatus @default(DRAFT)
+  publishedAt     DateTime?
+  scheduledAt     DateTime?
+  seoTitle        String?
+  seoDescription  String?
+  canonicalUrl    String?
+  ogTitle         String?
+  ogDescription   String?
+  ogImage         String?
+  noIndex         Boolean       @default(false)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  @@index([authorSlug])
+}
+
+model Product {
+  id             String        @id @default(cuid())
+  slug           String        @unique
+  title          String
+  isbn           String?
+  publisher      String?
+  description    String?
+  coverImage     String?
+  pageCount      Int?
+  publishedYear  Int?
+  price          Float?
+  showPrice      Boolean       @default(false)
+  featured       Boolean       @default(false)
+  status         ContentStatus @default(DRAFT)
+  scheduledAt    DateTime?
+  authorId       String?
+  author         Author?       @relation(fields: [authorId], references: [id])
+  categoryId     String?
+  category       Category?     @relation(fields: [categoryId], references: [id])
+  salesLinks     SalesLink[]
+  seoTitle       String?
+  seoDescription String?
+  canonicalUrl   String?
+  ogTitle        String?
+  ogDescription  String?
+  ogImage        String?
+  noIndex        Boolean       @default(false)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}
+
+model SalesLink {
+  id        String  @id @default(cuid())
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  platform  String
+  label     String
+  url       String
+  order     Int     @default(0)
+  active    Boolean @default(true)
+}
+
+model Event {
+  id                   String        @id @default(cuid())
+  slug                 String        @unique
+  title                String
+  shortDescription     String
+  description          String
+  date                 DateTime
+  // Admin'de saat opsiyonel: false ise date İstanbul 00.00'dır ve sitede
+  // saat gösterilmez; etkinlik o günün sonuna kadar "yaklaşan" sayılır.
+  hasTime              Boolean       @default(true)
+  location             String
+  // Ana sayfa etkinlik kartındaki kategori hapı (ör. "Bibliyoterapi",
+  // "Online Söyleşi") — boşsa hap gösterilmez.
+  category             String?
+  // Kartta ve takvimde gösterilen konuşmacı/sunan adı — Author kaydı
+  // olmayan misafirler için serbest metin. Boşsa seçili yazarların adı
+  // kullanılır (bkz. lib/eventSpeaker.ts).
+  speaker              String?
+  coverImage           String?
+  // Aylık takvim görünümündeki kare gün hücresinde gösterilen küçük resim
+  // (bkz. components/event/EventsCalendar.tsx) — coverImage 16:9 olduğu
+  // için küçük karede kırpılınca konu dışarıda kalabilir; admin bu kare
+  // kırpım için ayrı bir görsel seçebilsin diye eklendi. Boşsa coverImage'a
+  // düşülür (bkz. lib/services/events.ts mapDbEvent).
+  calendarThumbnailUrl String?
+  // Etkinlik detay sayfasında gösterilir (bkz. app/[locale]/(site)/kitabevi/
+  // etkinlikler/[slug]/page.tsx) — boş bırakılırsa hiç gösterilmez, 0
+  // girilirse "Kontenjan: Dolu" yazar, pozitif sayı girilirse "Kontenjan: N".
+  capacity             Int?
+  status               ContentStatus @default(DRAFT)
+  scheduledAt          DateTime?
+  authors              EventAuthor[]
+  gallery              EventGallery?
+  seoTitle             String?
+  seoDescription       String?
+  canonicalUrl         String?
+  ogTitle              String?
+  ogDescription        String?
+  ogImage              String?
+  noIndex              Boolean       @default(false)
+  createdAt            DateTime      @default(now())
+  updatedAt            DateTime      @updatedAt
+}
+
+// Bir etkinliğin birden fazla yazarı olabilir (BlogPost/Product'taki tekil
+// authorId'den farklı olarak) — bu yüzden ayrı bir M2M ara tablo gerekiyor.
+// "Kimler Geldi?" fotoğraf galerisi (admin: /admin/kimler-geldi). Bir
+// etkinliğe bağlanması opsiyonel (etkinlik başına en fazla bir galeri);
+// bağlıysa ad/tarih boş bırakılabilir, etkinliğinkiler kullanılır. Etkinlik
+// silinirse galeri kalır, bağlantısı kopar. Ana sayfada yaklaşan
+// etkinliklerin altında ve /kitabevi/kimler-geldi'de gösterilir (bkz.
+// lib/services/eventGalleries.ts).
+model EventGallery {
+  id        String    @id @default(cuid())
+  eventId   String?   @unique
+  event     Event?    @relation(fields: [eventId], references: [id], onDelete: SetNull)
+  name      String?
+  date      DateTime?
+  images    String[]
+  note      String?
+  // Slider/MenuItem'daki gibi elle sıra: küçük önce; eşitse en yeni tarih önce.
+  order     Int       @default(0)
+  active    Boolean   @default(true)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model EventAuthor {
+  id       String @id @default(cuid())
+  eventId  String
+  event    Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  authorId String
+  author   Author @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, authorId])
+}
+
+model Slider {
+  id            String   @id @default(cuid())
+  imageDesktop  String
+  imageMobile   String?
+  imagePosition String   @default("center")
+  titleTr       String
+  titleEn       String?
+  subtitleTr    String?
+  subtitleEn    String?
+  descriptionTr String?
+  descriptionEn String?
+  ctaHref       String?
+  ctaLabelTr    String?
+  ctaLabelEn    String?
+  order         Int      @default(0)
+  active        Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model MenuItem {
+  id           String       @id @default(cuid())
+  menu         MenuLocation
+  parentId     String?
+  parent       MenuItem?    @relation("MenuItemChildren", fields: [parentId], references: [id], onDelete: Cascade)
+  children     MenuItem[]   @relation("MenuItemChildren")
+  labelTr      String
+  labelEn      String?
+  linkType     MenuLinkType @default(EXTERNAL)
+  url          String
+  order        Int          @default(0)
+  active       Boolean      @default(true)
+  showOnMobile Boolean      @default(true)
+  openInNewTab Boolean      @default(false)
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}
+
+model Order {
+  id               String      @id @default(cuid())
+  userId           String?
+  user             User?       @relation(fields: [userId], references: [id])
+  guestName        String?
+  guestEmail       String?
+  guestPhone       String?
+  guestAddressLine String?
+  guestCity        String?
+  guestPostalCode  String?
+  deliveryOption   String
+  total            Float
+  status           String      @default("pending")
+  createdAt        DateTime    @default(now())
+  items            OrderItem[]
+}
+
+model OrderItem {
+  id        String @id @default(cuid())
+  orderId   String
+  order     Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
+  title     String
+  price     Float
+  quantity  Int
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}

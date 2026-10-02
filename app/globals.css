@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+@plugin "@tailwindcss/typography";
+
+html {
+  font-size: 17px;
+}
+
+/*
+ * Brand colors default to config/site.config.ts's `colors` values.
+ * The root layout also writes these as inline CSS custom properties from
+ * siteConfig, so changing site.config.ts updates the whole site without
+ * touching this file.
+ */
+:root {
+  --brand-primary: #792258;
+  --brand-secondary: #c9a876;
+  --brand-accent: #e8dfc8;
+  --background: #fbfaf7;
+  --foreground: #2f3540;
+}
+
+/*
+ * Figma "Booky Kitabevi" renk değişkenleri (booky-renk-*) — Figma'daki
+ * adlarıyla birebir: text-murdum, bg-lacivert, bg-kagit, text-fistik, text-nar.
+ */
+@theme {
+  --color-murdum: #792258;
+  --color-lacivert: #2f3540;
+  --color-kagit: #fbfaf7;
+  --color-fistik: #c5c62f;
+  --color-nar: #ee224f;
+}
+
+@theme inline {
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-accent: var(--brand-accent);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-accent: var(--font-accent);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  /* Young Serif tek ağırlıklı (400); mevcut sayfalardaki "font-serif
+     font-semibold" başlıklarında tarayıcının sahte kalın üretmesini önler. */
+  font-synthesis-weight: none;
+}
+
+@keyframes dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-dropdown {
+  animation: dropdown-in 0.15s ease-out;
+}
+
+/* Yatay kaydırmalı carousel'lerde (bkz. AuthorsCarousel) kaydırma çubuğunu
+   gizler — kaydırma işlevi ok butonları/dokunma ile zaten sağlanıyor. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

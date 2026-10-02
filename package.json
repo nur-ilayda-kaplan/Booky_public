@@ -1,0 +1,55 @@
+{
+  "name": "booky",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma migrate deploy && next build",
+    "start": "next start",
+    "lint": "eslint",
+    "postinstall": "prisma generate",
+    "db:seed:cms": "tsx prisma/seedCms.ts",
+    "db:seed:menu": "tsx prisma/seedMenu.ts",
+    "db:seed:sliders": "tsx prisma/seedSliders.ts",
+    "db:seed:team": "tsx prisma/seedTeam.ts",
+    "db:import-authors": "tsx prisma/import-authors.ts",
+    "email:test": "tsx scripts/send-test-email.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.3",
+    "@tailwindcss/typography": "^0.5.20",
+    "@vercel/blob": "^2.8.0",
+    "bcryptjs": "^3.0.3",
+    "fast-xml-parser": "^5.11.1",
+    "lucide-react": "^1.24.0",
+    "next": "16.2.10",
+    "next-auth": "^5.0.0-beta.31",
+    "nodemailer": "^7.0.13",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-markdown": "^10.1.0",
+    "sharp": "^0.34.5",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20",
+    "@types/nodemailer": "^8.0.1",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "dotenv": "^17.4.2",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.10",
+    "prisma": "^6.19.3",
+    "tailwindcss": "^4",
+    "tsx": "^4.19.2",
+    "typescript": "^5"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "nav": {
+    "home": "Home",
+    "bookstore": "Books",
+    "contact": "Contact",
+    "kitabevi": {
+      "title": "Bookstore",
+      "hakkimizda": "About Us",
+      "blog": "Blog",
+      "etkinlikler": "Events",
+      "kimlerGeldi": "Who Visited?"
+    },
+    "yayinevi": {
+      "title": "Publishing House",
+      "bizKimiz": "Meet the Team",
+      "yazarlarimiz": "Our Authors"
+    }
+  },
+  "common": {
+    "cart": "Cart",
+    "addToCart": "Add to Cart",
+    "outOfStock": "Out of Stock",
+    "lowStockPrefix": "Only",
+    "lowStockSuffix": "left",
+    "inStock": "In Stock",
+    "lowStockOption": "Low Stock",
+    "readMore": "Read More",
+    "viewDetails": "View Details",
+    "viewAll": "View All",
+    "loadMore": "Load More",
+    "search": "Search",
+    "searchPlaceholder": "Search by title or author...",
+    "filters": "Filters",
+    "category": "Category",
+    "author": "Author",
+    "priceRange": "Price Range",
+    "stockStatus": "Stock Status",
+    "all": "All",
+    "close": "Close",
+    "menu": "Menu",
+    "more": "More",
+    "loading": "Loading...",
+    "noResults": "No results found.",
+    "gridView": "Grid view",
+    "listView": "List view",
+    "quantity": "Quantity",
+    "total": "Total",
+    "subtotal": "Subtotal",
+    "clearFilters": "Clear Filters",
+    "back": "Go Back",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "followUs": "Follow Us",
+    "contactUs": "Contact Us",
+    "quickLinks": "Quick Links",
+    "workingHours": "Working Hours"
+  },
+  "home": {
+    "featuredBooks": "Featured Books",
+    "featuredBooksSubtitle": "Our favorites on the shelf",
+    "latestPosts": "Latest Blog Posts",
+    "upcomingEvents": "Upcoming Events",
+    "ourAuthors": "Our Authors",
+    "heroWhoWeAre": "About Us",
+    "heroBookstore": "Bookstore",
+    "heroPublishingHouse": "Publishing House",
+    "heroOurAuthors": "Our Authors",
+    "heroEvents": "Our Events",
+    "heroKicker": "Where Books Bring Us Together",
+    "heroMonthProgram": "{month} Programme",
+    "featuredBooksKicker": "Our shelf favourites, {month} picks",
+    "guestsKicker": "Our guests",
+    "latestPostsKicker": "Journal",
+    "monthProgramCardTitle": "All of {month} on a single page.",
+    "monthProgramCardCta": "Add to calendar",
+    "podcastKicker": "Booky Podcast",
+    "podcastTitle": "The Sound of Books",
+    "podcastEpisodeLabel": "Episode {number}",
+    "podcastEpisodeTitle": "Breasts and Eggs",
+    "podcastEpisodeDescription": "With our guest İrem Uzunhasanoğlu we talked about Mieko Kawakami’s novel, motherhood and translation.",
+    "podcastWatchOnYoutube": "Watch on YouTube",
+    "podcastListenOnSpotify": "Listen on Spotify",
+    "instagramTitle": "Booky on Instagram",
+    "instagramFollow": "Follow",
+    "allEvents": "All events",
+    "pastEventsKicker": "Past Events",
+    "whoVisited": "Who Visited?"
+  },
+  "product": {
+    "description": "Description",
+    "details": "Book Details",
+    "publisher": "Publisher",
+    "isbn": "ISBN",
+    "pageCount": "Page Count",
+    "publishedYear": "Published Year",
+    "relatedBy": "More by this Author",
+    "addedToCart": "Added to cart",
+    "frequentlyBoughtTogether": "You may also like",
+    "noSalesLinks": "No sales links have been added for this book yet."
+  },
+  "cart": {
+    "title": "My Cart",
+    "empty": "Your cart is empty.",
+    "continueShopping": "Continue Shopping",
+    "checkout": "Proceed to Checkout",
+    "remove": "Remove",
+    "recommendationsTitle": "You Might Also Want to Add"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "addressTitle": "Delivery Address",
+    "fullName": "Full Name",
+    "phone": "Phone",
+    "email": "Email",
+    "addressLine": "Address",
+    "city": "City",
+    "postalCode": "Postal Code",
+    "deliveryTitle": "Delivery Options",
+    "deliveryStandard": "Standard Delivery (3-5 days)",
+    "deliveryExpress": "Express Delivery (1-2 days)",
+    "paymentTitle": "Payment Method",
+    "cardNumber": "Card Number",
+    "cardName": "Name on Card",
+    "cardExpiry": "Expiry Date",
+    "cardCvc": "CVC",
+    "orderSummary": "Order Summary",
+    "placeOrder": "Place Order",
+    "processing": "Processing payment...",
+    "successTitle": "Order Received!",
+    "successMessage": "Thank you! Your order has been placed successfully.",
+    "orderNumber": "Order Number",
+    "emptyCartNotice": "Add products to your cart before checking out.",
+    "chooseHowToContinue": "How would you like to continue?",
+    "continueAsGuest": "Continue as Guest"
+  },
+  "blog": {
+    "title": "Blog",
+    "categoryFilter": "Filter by Category",
+    "relatedPosts": "Related Posts",
+    "publishedOn": "Published on",
+    "by": "By",
+    "authorFilter": "Filter by Author",
+    "allAuthors": "All Authors",
+    "moreOptions": "More options",
+    "copyLink": "Copy Link",
+    "linkCopied": "Link copied.",
+    "saveImage": "Save as Image",
+    "preparing": "Preparing...",
+    "imageSaved": "Image downloaded.",
+    "imageReadyTapAgain": "Image is ready, tap again to save.",
+    "actionError": "Something went wrong, please try again."
+  },
+  "events": {
+    "title": "Events",
+    "upcoming": "Upcoming Event",
+    "dateLabel": "Date",
+    "locationLabel": "Location",
+    "capacityLabel": "Capacity",
+    "capacityFull": "Full",
+    "join": "Join / Get in Touch",
+    "pastEvents": "Past Events",
+    "upcomingEvents": "Upcoming Events",
+    "calendar": {
+      "previousMonth": "Previous Month",
+      "nextMonth": "Next Month",
+      "previousMonthAriaLabel": "Previous month",
+      "nextMonthAriaLabel": "Next month",
+      "moreEventsTemplate": "+{count}"
+    },
+    "galleryTitle": "Who Visited?"
+  },
+  "authors": {
+    "title": "Our Authors",
+    "introLead": "Our door is always open to new voices.",
+    "introParagraphs": [
+      "Booky Publishing House supports authors producing original work in fiction, poetry, short stories and children's literature. "
+    ],
+    "books": "books",
+    "biography": "Biography",
+    "theirBooks": "Books",
+    "theirPosts": "Blog Posts",
+    "listen": "Listen to Playlist"
+  },
+  "guests": {
+    "title": "Who Visited?",
+    "intro": "Guests and authors we've hosted at the bookstore .",
+    "visitedLabel": "Visited",
+    "photoCount": "{count} photos"
+  },
+  "team": {
+    "title": "Our Team",
+    "intro": "Meet the people behind Booky Bookstore."
+  },
+  "contact": {
+    "title": "Contact",
+    "formName": "Full Name",
+    "formEmail": "Email",
+    "formPhone": "Phone",
+    "formMessage": "Your Message",
+    "send": "Send",
+    "sending": "Sending...",
+    "success": "Your message has been sent successfully!",
+    "error": "Your message could not be sent. Please try again later.",
+    "recaptchaRequired": "Please verify that you are not a robot.",
+    "kvkkConsentPrefix": "I have read the ",
+    "kvkkConsentSuffix": " and consent to my personal data being processed as described.",
+    "kvkkConsentRequired": "Please accept the Personal Data Protection Notice to continue.",
+
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "workingHours": "Working Hours"
+  },
+  "about": {
+    "title": "About Us"
+  },
+  "publishingHouse": {
+    "title": "Meet the Team"
+  },
+  "press": {
+    "title": "Press",
+    "bannerTitle": "Booky in the Press",
+    "bannerSubtitle": "Take a look at what people are saying about us."
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "message": "The page you're looking for may have moved or never existed.",
+    "backHome": "Back to Home"
+  },
+  "auth": {
+    "login": "Log In",
+    "register": "Sign Up",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "myAccount": "My Account",
+    "myOrders": "My Orders",
+    "adminPanel": "Admin Panel",
+    "logout": "Log Out",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "loginError": "Incorrect email or password.",
+    "registerError": "Could not create account. This email may already be in use.",
+    "passwordMismatch": "Passwords do not match.",
+    "passwordTooShort": "Password must be at least 8 characters."
+  },
+  "comingSoon": {
+    "title": "Booky Is Coming Soon",
+    "message": "We're preparing a new world full of books.",
+    "emailPlaceholder": "Your email address",
+    "subscribe": "Notify Me",
+    "subscribing": "Submitting...",
+    "subscribeSuccess": "Thank you! We'll let you know when we launch.",
+    "subscribeError": "Something went wrong, please try again."
+  },
+  "legal": {
+    "footerTitle": "Legal",
+    "kvkk": { "title": "Personal Data Protection Notice (KVKK)" },
+    "privacy": { "title": "Privacy Policy" },
+    "consent": { "title": "Explicit Consent Notice" },
+    "pricing": { "title": "Pricing Policy" }
+  }
+}
